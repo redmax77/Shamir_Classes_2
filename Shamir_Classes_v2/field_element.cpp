@@ -41,10 +41,6 @@ field_element field_element::operator*(int right)
 	return field_element(element * right, characteristic);
 }
 
-
-
-
-
 ostream &operator<<(ostream &stream, field_element f)
 {
 	stream << f.get_element();
@@ -52,13 +48,9 @@ ostream &operator<<(ostream &stream, field_element f)
 	return stream;
 }
 
-
-/*
-  TODO: check characteristics
- field_element operator+=(field_element &left, field_element right)
+ field_element &operator+=(field_element &left, field_element &right)
 {
-    left.set_element((left.get_element() + right.get_element()) % left.get_characteristic());
-
-    return left;
+    //left.set_element((left.get_element() + right.get_element()) % left.get_characteristic());
+	left.element = (left.element + right.element) % left.characteristic;
+	return left;
 }
- */

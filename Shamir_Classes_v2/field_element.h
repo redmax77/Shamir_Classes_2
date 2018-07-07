@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+// drop number in field 
+
 class field_element
 {
 public:
@@ -17,9 +19,9 @@ public:
 	field_element operator+(int right);
 	field_element operator*(field_element right);
 	field_element operator*(int right);
-
+	
 	friend ostream &operator<<(ostream &stream, field_element f);
-	//friend field_element operator+=(field_element &left, field_element right);
+	friend field_element &operator+=(field_element &left, field_element &right);
 
 private:
 	int element, characteristic;

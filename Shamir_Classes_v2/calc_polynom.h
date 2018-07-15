@@ -29,7 +29,7 @@ public:
 		
 		for (j = 0; j < users_id.size(); j++)
 		{
-			std::vector<int> temp;
+			std::vector<int> temp; 
 			field_element res_from_x(0, _characteristic);
 
 			//calc f(current UID)		
@@ -37,17 +37,17 @@ public:
 			{
 				res_from_x = res_from_x + calculate_part(i, users_id.at(j));
 				cout << endl << users_id.at(j) << endl;
+				// tmp
 				tmp_tmp = calculate_part(i, users_id.at(j));
 				tmp = tmp + calculate_part(i, users_id.at(j));
+				//
 				cout << polynom[i] << " * " << users_id.at(j) << " ^ " << i << " = " << tmp_tmp << "   current res = " << res_from_x << endl;
 			}
 
 			// Put in vector UID + f(UID)
-			for (int k = 0; k < 2; k++)
-			{
-				if (k == 0) temp.push_back(users_id.at(j));
-				if (k == 1) temp.push_back(tmp_tmp);
-			}
+			temp.push_back(users_id.at(j));
+			temp.push_back(tmp_tmp);
+
 			matrix.push_back(temp);
 
 
@@ -63,7 +63,6 @@ public:
 		}
 
 	};
-	
 	int calc_polynom_get_result() { return result; }
 	int calculate_part(int current_degree, int current_x)
 	{
